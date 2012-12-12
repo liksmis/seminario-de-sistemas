@@ -1,0 +1,106 @@
+﻿@model IEnumerable<hotel2012.Models.archivopersona>
+
+@{
+    ViewBag.Title = "verlistadepersonas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>verlistadepersonas</h2>
+
+<a href="/archivos/exportarpersona">exportar archivo csvs</a>
+<table style="width:120%; left:10px;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo_cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comentario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pais)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ciudad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo_persona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.materno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pasaporte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cumpleaños)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo_cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comentario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pais)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ciudad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo_persona)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.materno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pasaporte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cumpleaños)
+        </td>
+
+    </tr>
+}
+
+</table>

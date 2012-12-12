@@ -1,0 +1,13 @@
+﻿@model hotel2012.Models.ciudad
+
+@{
+    Layout = null;
+}
+
+<div class="editor-label">
+            @Html.LabelFor(model => model.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("codigo_ciudad",new SelectList(ViewBag.ciudad,"codigo_ciudad","nombre"))
+            @Html.ValidationMessageFor(model => model.codigo_ciudad)
+        </div>

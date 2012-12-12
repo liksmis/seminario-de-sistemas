@@ -1,0 +1,65 @@
+﻿@model IEnumerable<hotel2012.Models.servicios>
+
+@{
+    Layout = null;
+}
+<script>
+    var datos = "prueba";
+    /*$("#servicioDel").click(function (e) {
+        e.preventDefault();
+        alert($("#servicioDel").attr("val"));
+        if (confirm("esta seguro??")) {
+            $.ajax({
+                url: "/servicios/Delete/" + $("#servicioDel").attr("val"),
+                data: $("#servicioDel").attr("val"),
+                type: "post",
+                success: function (data) {
+                    if (data == "true") {
+                        $("#lista").load("/servicios/lista");
+                        $("#nuevoServicio").hide(500);
+                    }
+                    else
+                        alert("Error:");
+                }
+            });
+        }
+    });*/
+    $(document).ready(function () {
+        //pruebas();
+    });
+</script>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.costo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr id="opciones">
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.costo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.codigo_servicio },new { id="update",val=item.codigo_servicio}) |
+              
+                @Html.ActionLink("Delete", "Delete", new { id = item.codigo_servicio }, new { id="servicioDel",val=item.codigo_servicio})
+            </td>
+        </tr>
+    }
+    
+    </table>
+

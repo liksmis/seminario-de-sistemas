@@ -1,0 +1,36 @@
+﻿@model hotel2012.Models.empresa
+
+@{
+    Layout = null;
+}
+
+        <fieldset>
+            <legend>empresa</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.nit)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.nit)
+                @Html.ValidationMessageFor(model => model.nit)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.contacto)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.contacto)
+                @Html.ValidationMessageFor(model => model.contacto)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.metodo_pago)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.metodo_pago)
+                @Html.ValidationMessageFor(model => model.metodo_pago)
+            </div>
+        </fieldset>
+        <p>
+            <input type="submit" value="Create" />
+        </p>

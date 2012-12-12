@@ -1,0 +1,52 @@
+﻿@model IEnumerable<hotel2012.Models.servicios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <a href="#" id="nuevoServicio_click">Nuevo servicio</a>
+</p>
+<div id="nuevoServicio"></div>
+
+<div id="lista">
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.costo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.costo)
+           
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+           
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.codigo_servicio },new { id="update",val=item.codigo_servicio}) |
+          |
+            @Html.ActionLink("Delete", "Delete", new { id = item.codigo_servicio }, new { id="servicioDel",val=item.codigo_servicio})
+
+        </td>
+    </tr>
+}
+
+</table>
+    </div>

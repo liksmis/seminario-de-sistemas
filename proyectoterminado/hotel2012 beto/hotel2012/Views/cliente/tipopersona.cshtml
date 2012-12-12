@@ -1,0 +1,44 @@
+﻿@model hotel2012.Models.persona
+
+@{
+    Layout = null;
+}
+
+        <fieldset>
+            <legend>persona</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.paterno)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.paterno)
+                @Html.ValidationMessageFor(model => model.paterno)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.materno)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.materno)
+                @Html.ValidationMessageFor(model => model.materno)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.pasaporte)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.pasaporte)
+                @Html.ValidationMessageFor(model => model.pasaporte)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cumpleaños)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.cumpleaños)
+                @Html.ValidationMessageFor(model => model.cumpleaños)
+            </div>
+        </fieldset>
+         <p>
+            <input type="submit" value="Create" />
+        </p>

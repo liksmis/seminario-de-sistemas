@@ -1,0 +1,53 @@
+﻿@model IEnumerable<hotel2012.Models.habitacion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+<p>
+    <a href="#" id="nuevohabitacion_click">Nueva habitacion</a>
+</p>
+<div id="nuevahabitacion"></div>
+<div id="lista">
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.piso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo_categoria)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.numero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.piso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo_categoria)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.codigo_habitacion },new { id="update",val=item.codigo_habitacion})
+            @Html.ActionLink("Delete", "Delete", new { id=item.codigo_habitacion },  new { id="habitacionDel",val=item.codigo_habitacion})
+             @Html.ActionLink("Estado", "Estado", new { id=item.codigo_habitacion } , new { id="estado",val=item.codigo_habitacion})            
+        </td>
+    </tr>
+}
+
+</table>
+    </div>

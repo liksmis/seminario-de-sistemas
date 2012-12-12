@@ -1,0 +1,71 @@
+﻿@model hotel2012.Models.estado
+
+@{
+    ViewBag.Title = "estado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>estado</legend>
+
+        @Html.HiddenFor(model => model.codigo_estado)
+
+        <div class="editor-label">
+            Activo
+        </div>
+        <div class="editor-field">
+            
+            @Html.EditorFor(model => model.motivo)
+            
+            @Html.ValidationMessageFor(model => model.motivo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.descripcion)
+            @Html.ValidationMessageFor(model => model.descripcion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha_inicio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fecha_inicio)
+            @Html.ValidationMessageFor(model => model.fecha_inicio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha_fin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fecha_fin)
+            @Html.ValidationMessageFor(model => model.fecha_fin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.codigo_habitacion)
+        </div>
+        <div class="editor-field">
+            @Html.HiddenFor(model => model.codigo_habitacion)
+          
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

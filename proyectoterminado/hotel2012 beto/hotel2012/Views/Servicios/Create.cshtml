@@ -1,0 +1,122 @@
+﻿@model hotel2012.Models.servicios
+
+@{
+    ViewBag.Title = "Create";
+}
+<script>
+    
+    //alert("sss"+ $('#formservice'));
+    $("#ww").click(function (e) {
+        e.preventDefault()
+        //method();
+        metodo();
+    });
+    if (tiposervicio == "update") {
+        alert("este es " + idService);
+        var llave = idService;
+        $.ajax({
+            url: "/Servicios/Edit/"+idService,
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data == "false")
+                    alert("Error:");
+                else {
+                    
+                    $("#nombre").val(data["q"]["nombre"]);
+                    $("#costo").val(data["q"]["costo"]);
+                    $("#descripcion").val(data["q"]["descripcion"]);
+                }
+            }
+        });
+    }
+        $('#formservice').submit(function () {
+            //alert(1111);
+            //alert(root.datos);
+            //return false;
+            if (tiposervicio == "update") {
+                var info = $("#formservice").serialize();
+                $.ajax({
+                    url: "/servicios/editado",
+                    data: info,
+                    //data: idService,
+                    type: "post",
+                    success: function (data) {
+                        if (data == "true") {
+                            $("#lista").load("/servicios/lista", function () {
+                                loadEventsss();
+                            });
+                            $("#nuevoServicio").hide(500);
+                        }
+                        else
+                            alert("Error:");
+                    }
+                });
+            } else if(tiposervicio=="create")
+            {
+                var info = $("#formservice").serialize();
+                $.ajax({
+                    url: "/servicios/create",
+                    data: info,
+                    type: "post",
+                    success: function (data) {
+                        if (data == "true") {
+                            $("#lista").load("/servicios/lista", function () {
+                                loadEventsss();
+                            });
+                            $("#nuevoServicio").hide(500);
+                        }
+                        else
+                            alert("Error:");
+                    }
+                });
+            }
+           
+            return false;
+
+        });
+    
+</script>
+<h2>Create</h2>
+<form action="#" method="post" id="formservice">
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>servicios</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nombre, new { id="nombre"})
+            @Html.ValidationMessageFor(model => model.nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.costo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.costo, new { id="costo"})
+            @Html.ValidationMessageFor(model => model.costo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.descripcion, new { id="descripcion"})
+            @Html.ValidationMessageFor(model => model.descripcion)
+        </div>
+
+        <p>
+             @if(ViewBag.flag==1){
+                                 <input type="submit"    value="Create" />
+             }
+                            else{
+                                  <input type="submit"    value="Edit" />
+                            }
+        </p>
+    </fieldset>
+</form>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

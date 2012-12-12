@@ -1,0 +1,136 @@
+﻿@model hotel2012.Models.habitacion
+
+@{
+    ViewBag.Title = "Create";
+}
+<script>
+    
+    //alert("sss"+ $('#formservice'));
+    $("#ww").click(function (e) {
+        e.preventDefault()
+        //method();
+        metodo();
+    });
+    if (tiposervicio1 == "update") {
+        alert("este es " + idService1);
+        var llave = idService1;
+        $.ajax({
+            url: "/habitaciones1/Edit/"+idService1,
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data == "false")
+                    alert("Error:");
+                else {
+                    
+                    $("#numero").val(data["q"]["numero"]);
+                    $("#piso").val(data["q"]["piso"]);
+                    $("#precio").val(data["q"]["precio"]);
+                    $("#categoria").val(data["q"]["codigo_categoria"]);
+                }
+            }
+        });
+    }
+        $('#formservice').submit(function () {
+           // alert("1111" + tiposervicio);
+            //alert(root.datos);
+            //return false;
+            if (tiposervicio1 == "update") {
+                var info = $("#formservice").serialize();
+                $.ajax({
+                    url: "/habitaciones1/editado",
+                    data: info,
+                    //data: idService,
+                    type: "post",
+                    success: function (data) {
+                        if (data == "true") {
+                            $("#lista").load("/habitaciones1/lista", function () {
+                                loadEventsss1();
+                            });
+                            $("#nuevahabitacion").hide(500);
+                        }
+                        else
+                            alert("Error:");
+                    }
+                });
+            } else if(tiposervicio1=="create")
+            {
+                var info = $("#formservice").serialize();
+                $.ajax({
+                    url: "/habitaciones1/create",
+                    data: info,
+                    type: "post",
+                    success: function (data) {
+                        if (data == "true") {
+                            $("#lista").load("/habitaciones1/lista", function () {
+                                loadEventsss1();
+                            });
+                            $("#nuevahabitacion").hide(500);
+                        }
+                        else
+                            alert("Error:");
+                    }
+                });
+            }
+           
+            return false;
+
+        });
+    
+</script>
+<h2>Create</h2>
+
+<form action="#" method="post" id="formservice">
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>habitacion</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.numero)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.numero, new { id="numero"})
+            @Html.ValidationMessageFor(model => model.numero)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.piso)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.piso, new { id="piso"})
+            @Html.ValidationMessageFor(model => model.piso)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.precio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.precio, new { id="precio"})
+            @Html.ValidationMessageFor(model => model.precio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.codigo_categoria)
+        </div>
+        <div class="editor-field">
+            
+            @Html.DropDownList("codigo_categoria",new SelectList(ViewBag.categorias,"codigo_categoria","tipo"))
+            @Html.ValidationMessageFor(model => model.codigo_categoria)
+        </div>
+
+        <p>
+             @if(ViewBag.flag==1){
+                                 <input type="submit"    value="Create" />
+             }
+                            else{
+                                  <input type="submit"    value="Edit" />
+                            }
+        </p>
+    </fieldset>
+}
+    </form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,508 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hotel2012Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="hotel2012ModelStoreContainer">
+    <EntitySet Name="agencia" EntityType="hotel2012Model.Store.agencia" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Applications" EntityType="hotel2012Model.Store.Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="categoria" EntityType="hotel2012Model.Store.categoria" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ciudad" EntityType="hotel2012Model.Store.ciudad" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cliente" EntityType="hotel2012Model.Store.cliente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="consumo" EntityType="hotel2012Model.Store.consumo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="empresa" EntityType="hotel2012Model.Store.empresa" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="estado" EntityType="hotel2012Model.Store.estado" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="habitacion" EntityType="hotel2012Model.Store.habitacion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Memberships" EntityType="hotel2012Model.Store.Memberships" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="pais" EntityType="hotel2012Model.Store.pais" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="persona" EntityType="hotel2012Model.Store.persona" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Profiles" EntityType="hotel2012Model.Store.Profiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="reserva" EntityType="hotel2012Model.Store.reserva" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="hotel2012Model.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="servicios" EntityType="hotel2012Model.Store.servicios" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="hotel2012Model.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="hotel2012Model.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsersInRoles" EntityType="hotel2012Model.Store.UsersInRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="usuario" EntityType="hotel2012Model.Store.usuario" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__agencia__codigo___4AB81AF0" Association="hotel2012Model.Store.FK__agencia__codigo___4AB81AF0">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="agencia" EntitySet="agencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ciudad__codigo_p__3C69FB99" Association="hotel2012Model.Store.FK__ciudad__codigo_p__3C69FB99">
+      <End Role="pais" EntitySet="pais" />
+      <End Role="ciudad" EntitySet="ciudad" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente__codigo___412EB0B6" Association="hotel2012Model.Store.FK__cliente__codigo___412EB0B6">
+      <End Role="ciudad" EntitySet="ciudad" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__empresa__codigo___45F365D3" Association="hotel2012Model.Store.FK__empresa__codigo___45F365D3">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="empresa" EntitySet="empresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__estado__codigo_h__619B8048" Association="hotel2012Model.Store.FK__estado__codigo_h__619B8048">
+      <End Role="habitacion" EntitySet="habitacion" />
+      <End Role="estado" EntitySet="estado" />
+    </AssociationSet>
+    <AssociationSet Name="FK__habitacio__codig__5CD6CB2B" Association="hotel2012Model.Store.FK__habitacio__codig__5CD6CB2B">
+      <End Role="categoria" EntitySet="categoria" />
+      <End Role="habitacion" EntitySet="habitacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__persona__codigo___4F7CD00D" Association="hotel2012Model.Store.FK__persona__codigo___4F7CD00D">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="persona" EntitySet="persona" />
+    </AssociationSet>
+    <AssociationSet Name="FK__reserva__codigo___5441852A" Association="hotel2012Model.Store.FK__reserva__codigo___5441852A">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="reserva" EntitySet="reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuario__id_us__02084FDA" Association="hotel2012Model.Store.FK__usuario__id_us__02084FDA">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="MembershipApplication" Association="hotel2012Model.Store.MembershipApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Memberships" EntitySet="Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="MembershipUser" Association="hotel2012Model.Store.MembershipUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Memberships" EntitySet="Memberships" />
+    </AssociationSet>
+    <AssociationSet Name="RoleApplication" Association="hotel2012Model.Store.RoleApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="UserApplication" Association="hotel2012Model.Store.UserApplication">
+      <End Role="Applications" EntitySet="Applications" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UserProfile" Association="hotel2012Model.Store.UserProfile">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Profiles" EntitySet="Profiles" />
+    </AssociationSet>
+    <AssociationSet Name="UsersInRoleRole" Association="hotel2012Model.Store.UsersInRoleRole">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="UsersInRoles" EntitySet="UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="UsersInRoleUser" Association="hotel2012Model.Store.UsersInRoleUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersInRoles" EntitySet="UsersInRoles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="agencia">
+    <Key>
+      <PropertyRef Name="codigo_agencia" />
+    </Key>
+    <Property Name="codigo_agencia" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nit" Type="bigint" />
+    <Property Name="contacto" Type="varchar" MaxLength="20" />
+    <Property Name="codigo_cliente" Type="int" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="235" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="categoria">
+    <Key>
+      <PropertyRef Name="codigo_categoria" />
+    </Key>
+    <Property Name="codigo_categoria" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="tipo" Type="varchar" MaxLength="20" />
+    <Property Name="descripcion" Type="text" />
+  </EntityType>
+  <EntityType Name="ciudad">
+    <Key>
+      <PropertyRef Name="codigo_ciudad" />
+    </Key>
+    <Property Name="codigo_ciudad" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" MaxLength="20" />
+    <Property Name="codigo_pais" Type="int" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="codigo_cliente" />
+    </Key>
+    <Property Name="codigo_cliente" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" MaxLength="20" />
+    <Property Name="telefono" Type="varchar" MaxLength="20" />
+    <Property Name="email" Type="varchar" MaxLength="20" />
+    <Property Name="direccion" Type="varchar" MaxLength="20" />
+    <Property Name="estado" Type="varchar" MaxLength="20" />
+    <Property Name="comentario" Type="text" />
+    <Property Name="codigo_ciudad" Type="int" />
+  </EntityType>
+  <EntityType Name="consumo">
+    <Key>
+      <PropertyRef Name="codigo_consumo" />
+    </Key>
+    <Property Name="codigo_consumo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="catidad" Type="int" />
+    <Property Name="fecha_consumo" Type="datetime" />
+    <Property Name="estado" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="empresa">
+    <Key>
+      <PropertyRef Name="codigo_empresa" />
+    </Key>
+    <Property Name="codigo_empresa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nit" Type="bigint" />
+    <Property Name="contacto" Type="varchar" MaxLength="20" />
+    <Property Name="metodo_pago" Type="varchar" MaxLength="100" />
+    <Property Name="codigo_cliente" Type="int" />
+  </EntityType>
+  <EntityType Name="estado">
+    <Key>
+      <PropertyRef Name="codigo_estado" />
+    </Key>
+    <Property Name="codigo_estado" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="motivo" Type="varchar" MaxLength="20" />
+    <Property Name="descripcion" Type="text" />
+    <Property Name="fecha_inicio" Type="datetime" />
+    <Property Name="fecha_fin" Type="datetime" />
+    <Property Name="codigo_habitacion" Type="int" />
+  </EntityType>
+  <EntityType Name="habitacion">
+    <Key>
+      <PropertyRef Name="codigo_habitacion" />
+    </Key>
+    <Property Name="codigo_habitacion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="numero" Type="int" />
+    <Property Name="piso" Type="int" />
+    <Property Name="precio" Type="numeric" Precision="6" Scale="2" />
+    <Property Name="codigo_categoria" Type="int" />
+  </EntityType>
+  <EntityType Name="Memberships">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowsStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="pais">
+    <Key>
+      <PropertyRef Name="codigo_pais" />
+    </Key>
+    <Property Name="codigo_pais" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="persona">
+    <Key>
+      <PropertyRef Name="codigo_persona" />
+    </Key>
+    <Property Name="codigo_persona" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="paterno" Type="varchar" MaxLength="20" />
+    <Property Name="materno" Type="varchar" MaxLength="20" />
+    <Property Name="pasaporte" Type="varchar" MaxLength="20" />
+    <Property Name="cumpleaños" Type="datetime" />
+    <Property Name="codigo_cliente" Type="int" />
+  </EntityType>
+  <EntityType Name="Profiles">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PropertyNames" Type="nvarchar" Nullable="false" />
+    <Property Name="PropertyValueStrings" Type="nvarchar" Nullable="false" />
+    <Property Name="PropertyValueBinary" Type="image" Nullable="false" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="reserva">
+    <Key>
+      <PropertyRef Name="codigo_reserva" />
+    </Key>
+    <Property Name="codigo_reserva" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fecha_inicio" Type="datetime" />
+    <Property Name="fecha_fin" Type="datetime" />
+    <Property Name="estado" Type="varchar" MaxLength="20" />
+    <Property Name="codigo_cliente" Type="int" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Description" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="servicios">
+    <Key>
+      <PropertyRef Name="codigo_servicio" />
+    </Key>
+    <Property Name="codigo_servicio" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" MaxLength="20" />
+    <Property Name="costo" Type="decimal" Scale="2" />
+    <Property Name="descripcion" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="codigo_persona" />
+    </Key>
+    <Property Name="codigo_persona" Type="int" Nullable="false" />
+    <Property Name="nick" Type="varchar" MaxLength="20" />
+    <Property Name="id_us" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__agencia__codigo___4AB81AF0">
+    <End Role="cliente" Type="hotel2012Model.Store.cliente" Multiplicity="0..1" />
+    <End Role="agencia" Type="hotel2012Model.Store.agencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="codigo_cliente" />
+      </Principal>
+      <Dependent Role="agencia">
+        <PropertyRef Name="codigo_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ciudad__codigo_p__3C69FB99">
+    <End Role="pais" Type="hotel2012Model.Store.pais" Multiplicity="0..1" />
+    <End Role="ciudad" Type="hotel2012Model.Store.ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pais">
+        <PropertyRef Name="codigo_pais" />
+      </Principal>
+      <Dependent Role="ciudad">
+        <PropertyRef Name="codigo_pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente__codigo___412EB0B6">
+    <End Role="ciudad" Type="hotel2012Model.Store.ciudad" Multiplicity="0..1" />
+    <End Role="cliente" Type="hotel2012Model.Store.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ciudad">
+        <PropertyRef Name="codigo_ciudad" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="codigo_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__empresa__codigo___45F365D3">
+    <End Role="cliente" Type="hotel2012Model.Store.cliente" Multiplicity="0..1" />
+    <End Role="empresa" Type="hotel2012Model.Store.empresa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="codigo_cliente" />
+      </Principal>
+      <Dependent Role="empresa">
+        <PropertyRef Name="codigo_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__estado__codigo_h__619B8048">
+    <End Role="habitacion" Type="hotel2012Model.Store.habitacion" Multiplicity="0..1" />
+    <End Role="estado" Type="hotel2012Model.Store.estado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="habitacion">
+        <PropertyRef Name="codigo_habitacion" />
+      </Principal>
+      <Dependent Role="estado">
+        <PropertyRef Name="codigo_habitacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__habitacio__codig__5CD6CB2B">
+    <End Role="categoria" Type="hotel2012Model.Store.categoria" Multiplicity="0..1" />
+    <End Role="habitacion" Type="hotel2012Model.Store.habitacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria">
+        <PropertyRef Name="codigo_categoria" />
+      </Principal>
+      <Dependent Role="habitacion">
+        <PropertyRef Name="codigo_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__persona__codigo___4F7CD00D">
+    <End Role="cliente" Type="hotel2012Model.Store.cliente" Multiplicity="0..1" />
+    <End Role="persona" Type="hotel2012Model.Store.persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="codigo_cliente" />
+      </Principal>
+      <Dependent Role="persona">
+        <PropertyRef Name="codigo_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__reserva__codigo___5441852A">
+    <End Role="cliente" Type="hotel2012Model.Store.cliente" Multiplicity="0..1" />
+    <End Role="reserva" Type="hotel2012Model.Store.reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="codigo_cliente" />
+      </Principal>
+      <Dependent Role="reserva">
+        <PropertyRef Name="codigo_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuario__id_us__02084FDA">
+    <End Role="Users" Type="hotel2012Model.Store.Users" Multiplicity="1" />
+    <End Role="usuario" Type="hotel2012Model.Store.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="id_us" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MembershipApplication">
+    <End Role="Applications" Type="hotel2012Model.Store.Applications" Multiplicity="1" />
+    <End Role="Memberships" Type="hotel2012Model.Store.Memberships" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Memberships">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MembershipUser">
+    <End Role="Users" Type="hotel2012Model.Store.Users" Multiplicity="1" />
+    <End Role="Memberships" Type="hotel2012Model.Store.Memberships" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Memberships">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RoleApplication">
+    <End Role="Applications" Type="hotel2012Model.Store.Applications" Multiplicity="1" />
+    <End Role="Roles" Type="hotel2012Model.Store.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserApplication">
+    <End Role="Applications" Type="hotel2012Model.Store.Applications" Multiplicity="1" />
+    <End Role="Users" Type="hotel2012Model.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserProfile">
+    <End Role="Users" Type="hotel2012Model.Store.Users" Multiplicity="1" />
+    <End Role="Profiles" Type="hotel2012Model.Store.Profiles" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Profiles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsersInRoleRole">
+    <End Role="Roles" Type="hotel2012Model.Store.Roles" Multiplicity="1" />
+    <End Role="UsersInRoles" Type="hotel2012Model.Store.UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UsersInRoleUser">
+    <End Role="Users" Type="hotel2012Model.Store.Users" Multiplicity="1" />
+    <End Role="UsersInRoles" Type="hotel2012Model.Store.UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <!--Errors Found During Generation:
+      warning 6013: The table/view 'hotel2012.dbo.consumo_tiene_servicio' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="consumo_tiene_servicio">
+        <Property Name="codigo_consumo" Type="int" />
+        <Property Name="codigo_servicio" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'hotel2012.dbo.habitacion_posee_servicio' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="habitacion_posee_servicio">
+        <Property Name="codigo_habitacion" Type="int" />
+        <Property Name="codigo_servicio" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'hotel2012.dbo.reserva_tiene_habitacion_tiene_consumo' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="reserva_tiene_habitacion_tiene_consumo">
+        <Property Name="codigo_habitacion" Type="int" />
+        <Property Name="codigo_reserva" Type="int" />
+        <Property Name="codigo_consumo" Type="int" />
+        <Property Name="costo_total" Type="numeric" Precision="6" Scale="2" />
+        <Property Name="fecha_pago" Type="datetime" />
+      </EntityType>-->
+</Schema>

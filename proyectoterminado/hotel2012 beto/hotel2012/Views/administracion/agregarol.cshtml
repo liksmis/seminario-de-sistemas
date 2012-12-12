@@ -1,0 +1,12 @@
+﻿@model IEnumerable<hotel2012.Models.RolView>
+
+@{
+    Layout = null;
+}<ul >
+@foreach (var roles in Model)
+ {
+     <li id="il_@ViewBag.nombre+@roles.id"> @roles.nombre<br />
+     <input type="checkbox" id="@ViewBag.nombre+@roles.id" value="@roles.id" class="selectit"   /></li>
+}</ul>
+   
+  

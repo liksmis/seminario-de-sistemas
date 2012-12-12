@@ -1,0 +1,45 @@
+﻿@model hotel2012.Models.UserListRol
+
+@{
+    ViewBag.Title = "verrolesdeusuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="formbox">
+<h2>verrolesdeusuario</h2>
+               <div id="all_users">               
+                   @foreach(var item in ViewBag.lista){
+           		        <div id="@item.id" userid="1" class="innertxt">
+					        <img src="/images/images.jpg" width="75" height="75"><strong>@item.nombre</strong>
+                            <div id="rolescontenido">
+					        <ul >
+                                @foreach(var roles in @item.ListaRoles){
+                    	        <li id="il_@item.nombre+@roles.id"> @roles.nombre<br />
+                                <input type="checkbox" id="@item.nombre+@roles.id" value="@roles.id" class="selectit"  style="display:none" /></li>
+                                }
+                                    </ul></div>
+                               <input type="button" class="eliminar" value="eliminar" style="display:none"/>
+                         </div>
+                   }
+                   </div>
+     <div style="width:100px; text-align:center; margin-left:20px; padding-top: 100px; width:75px; float:left;">
+         <button id="agregarrol"><=</button>
+           <!-- <a href="javascript:void(0);" id="move_right">Right &raquo;</a><br /><br /> -->
+           <!-- <a href="javascript:void(0);" id="move_left">&laquo; Left</a> -->
+            <div class="float_break"></div>   
+            </div>
+
+    <div id="selected_users">
+        <ul>
+   @foreach (var rol in ViewBag.roles) 
+   {
+        <div class="innertxtmodificado">
+					       
+					        <ul>
+                    	        <li> @rol.RoleName</li>
+                                <li style="padding-top:5px;"><input type="checkbox" id="@rol.RoleId" value="1" class="selectit" /><label for="select1"></label></li>
+                            </ul>
+                  </div>
+    }
+</ul>
+</div>
+</div>
